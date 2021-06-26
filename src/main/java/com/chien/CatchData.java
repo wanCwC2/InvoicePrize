@@ -30,6 +30,7 @@ public class CatchData {
             urlData = data.toString();
             System.out.println(urlData);
             Parser(urlData);
+            System.out.println(number.get(0));
 //            System.out.println("統一發票中獎號碼");
 //            for (int i = 0; i < name.length; i++) {
 //                System.out.println(name[i]+"\t"+number.get(i));
@@ -50,7 +51,7 @@ public class CatchData {
             start = data.indexOf("<td headers=\"specialPrize\" class=\"number\">",end+1);
             end = data.indexOf("</td>", start+1);
             System.out.println("s="+start+"e="+end);
-            temp = data.substring(start, 8);
+            temp = data.substring(end-9, end-1);
             number.add(temp);
 //            counter++;
 //        }while (start < name.length);
