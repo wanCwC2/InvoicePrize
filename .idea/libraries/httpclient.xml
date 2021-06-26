@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="orgapache">
+  <library name="httpclient">
     <CLASSES>
       <root url="jar://$USER_HOME$/Documents/java/httpcomponents-client-5/lib/commons-cli-1.4.jar!/" />
       <root url="jar://$USER_HOME$/Documents/java/httpcomponents-client-5/lib/commons-codec-1.15.jar!/" />

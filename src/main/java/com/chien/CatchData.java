@@ -1,18 +1,16 @@
 package com.chien;
 
-import org.apache.hc.core5.util.*;
-
-import java.io.BufferedInputStream;
+import java.io.*;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
-import java.net.URL;
-import java.net.URLConnection;
+import java.net.*;
 import java.util.ArrayList;
 import java.util.List;
 
 public class CatchData {
-    static String[] name = {"特別獎", "特獎", "頭獎", "二獎", "三獎", "四獎", "五獎", "六獎", "增開六獎"};
+    static String[] name = {"specialPrize", "grandPrize", "firstPrize", "twoPrize",
+            "threePrize", "fourPrize", "fivePrize", "sixPrize", "addsixPrize"};
     static List<String> number = new ArrayList<String>();
     static String urlData = null;
 
@@ -20,19 +18,41 @@ public class CatchData {
         String site = "https://www.etax.nat.gov.tw/etw-main/web/ETW183W2_11003/";
         try {
             URL url = new URL(site);
-            URLConnection conn = url.openConnection();
+            HttpURLConnection conn = (HttpURLConnection)url.openConnection();
             InputStream is = conn.getInputStream();
-            BufferedInputStream bis = new BufferedInputStream(is);
-            ByteArrayBuffer bab = new ByteArrayBuffer();
-            int data = 0;
-            while ((data = bis.read()) != -1){
-                bab.append((byte) data);
+            BufferedReader bis = new BufferedReader(new InputStreamReader(is));
+            String line = bis.readLine();
+            StringBuffer data = new StringBuffer();
+            while(line != null) {
+                data.append(line);
+                line = bis.readLine();
             }
-//            urlData = EcondingUtils.getString(data, "UTF-8");
+            urlData = data.toString();
+            System.out.println(urlData);
+            Parser(urlData);
+//            System.out.println("統一發票中獎號碼");
+//            for (int i = 0; i < name.length; i++) {
+//                System.out.println(name[i]+"\t"+number.get(i));
+//            }
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void Parser(String data) {
+        String temp = null;
+        int start = 0;
+        int end = 0;
+        int counter = 0;
+//        do {
+            start = data.indexOf("<td headers=\"specialPrize\" class=\"number\">",end+1);
+            end = data.indexOf("</td>", start+1);
+            System.out.println("s="+start+"e="+end);
+            temp = data.substring(start, 8);
+            number.add(temp);
+//            counter++;
+//        }while (start < name.length);
     }
 }
