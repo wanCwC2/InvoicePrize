@@ -10,11 +10,11 @@ import java.util.List;
 
 public class CatchData {
     static String[] name = {"specialPrize", "grandPrize", "firstPrizeA",
-            "firstPrizeB", "firstPrizeC", "addsixPrize"};
-    static List<String> number = new ArrayList<String>();
+            "firstPrizeB", "firstPrizeC", "addSixPrize"};
+    static List<Integer> number = new ArrayList<Integer>();
     static String urlData = null;
 
-    public static void main(String[] args) {
+    public void want() {
         String site = "https://www.etax.nat.gov.tw/etw-main/web/ETW183W2_11003/";
         try {
             URL url = new URL(site);
@@ -31,9 +31,10 @@ public class CatchData {
 //            System.out.println(urlData);
             Parser(urlData);
 //            System.out.println(number.get(0));
-            System.out.println("統一發票中獎號碼");
+//            System.out.println("統一發票中獎號碼");
             for (int i = 0; i < name.length; i++) {
-                System.out.println(name[i]+"\t"+number.get(i));
+                System.out.printf("%-12s %d",name[i],number.get(i));
+                System.out.println();
             }
         } catch (MalformedURLException e) {
             e.printStackTrace();
@@ -47,23 +48,32 @@ public class CatchData {
         int start = 0;
         int end = 0;
         int counter = 0;
+        int len = name.length;
         do {
-            start = data.indexOf("<td headers=\""+name[counter]+"\" class=\"number\">",end+1);
-            end = data.indexOf("</td>", start+1);
-            System.out.println("s="+start+"e="+end);
-            if (end - start - 52 > 10){
-                for (int i = 0; i < 3; i++) {
-                    start = data.indexOf("<p>",end+1);
-                    end = data.indexOf("</p>", start+1);
-                    temp = data.substring(end-8, end);
-                    number.add(temp);
-                    counter++;
-                }
+//            System.out.println("s="+start+"e="+end);
+            if (counter <= len-2 && counter >=len-4){
+                start = data.indexOf("<p>",end+1);
+                end = data.indexOf("</p>", start+1);
+                temp = data.substring(end-8, end);
+                number.add(Integer.parseInt(temp));
+            }else if(counter == len-1){
+                start = data.indexOf("<td headers=\""+name[counter]+"\" class=\"number\">",
+                        end+1);
+                end = data.indexOf("</td>", start+1);
+                temp = data.substring(end-4, end-1);
+                number.add(Integer.parseInt(temp));
             }else {
+                start = data.indexOf("<td headers=\""+name[counter]+"\" class=\"number\">",
+                        end+1);
+                end = data.indexOf("</td>", start+1);
                 temp = data.substring(end-9, end-1);
-                number.add(temp);
-                counter++;
+                number.add(Integer.parseInt(temp));
             }
-        }while (counter < name.length);
+            counter++;
+        }while (counter < len);
+    }
+
+    public static List<Integer> get(){
+        return number;
     }
 }
