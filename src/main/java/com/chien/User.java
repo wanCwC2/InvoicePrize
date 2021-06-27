@@ -11,6 +11,11 @@ public class User {
         Scanner scan = new Scanner(System.in);
         int enter = scan.nextInt();
         while (enter != 0){
+            while (enter/1000 > 0){
+                System.out.println("輸入內容超過三位數");
+                System.out.print("輸入你的發票末三碼，若要停止則輸入0：");
+                enter = scan.nextInt();
+            }
             int index = 0;
             while (index < prize.data.size()){
                 if (enter == prize.data.get(index)%1000){
@@ -24,6 +29,11 @@ public class User {
             }
             System.out.print("輸入你的發票末三碼，若要停止則輸入0：");
             enter = scan.nextInt();
+            while (enter/1000 > 0){
+                System.out.println("輸入內容超過三位數");
+                System.out.print("輸入你的發票末三碼，若要停止則輸入0：");
+                enter = scan.nextInt();
+            }
         }
         prize.print();
     }

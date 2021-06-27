@@ -20,6 +20,12 @@ public class CompareData {
         Scanner scan = new Scanner(System.in);
         System.out.print("輸入你的完整發票號碼：");
         int enter = scan.nextInt();
+        while (enter/100000000>0 || enter/10000000==0 ){
+            System.out.println("輸入內容並非為發票號碼數");
+            System.out.println("發票總號碼數為8碼");
+            System.out.print("輸入你的完整發票號碼：");
+            enter = scan.nextInt();
+        }
         if (index == 0){
             if (enter == prize){
                 number = 0;
