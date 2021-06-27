@@ -10,8 +10,8 @@ com/chien/prize/ThreePrize.java
  com.chien.prize.ThreePrize
 com/chien/prize/GrandPrize.java
  com.chien.prize.GrandPrize
-com/chien/prize/SpecialPrize.java
- com.chien.prize.SpecialPrize
+com/chien/User.java
+ com.chien.User
 com/chien/prize/FourPrize.java
  com.chien.prize.FourPrize
 com/chien/prize/SixPrize.java
@@ -28,5 +28,5 @@ com/chien/prize/AddsixPrize.java
  com.chien.prize.AddsixPrize
 com/chien/prize/FivePrize.java
  com.chien.prize.FivePrize
-com/chien/User.java
- com.chien.User
+com/chien/prize/SpecialPrize.java
+ com.chien.prize.SpecialPrize

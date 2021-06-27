@@ -25,5 +25,6 @@ public class User {
             System.out.print("輸入你的發票末三碼，若要停止則輸入0：");
             enter = scan.nextInt();
         }
+        prize.print();
     }
 }
