@@ -2,8 +2,16 @@ com/fju/Car.java
  com.fju.Car
 com/fju/Tester.java
  com.fju.Tester
-com/chien/User.java
- com.chien.User
+com/chien/prize/FourPrize.java
+ com.chien.prize.FourPrize
+com/chien/CompareData.java
+ com.chien.CompareData
+com/chien/prize/TwoPrize.java
+ com.chien.prize.TwoPrize
+com/chien/prize/NotPrize.java
+ com.chien.prize.NotPrize
+com/chien/prize/FivePrize.java
+ com.chien.prize.FivePrize
 com/chien/Prize.java
  com.chien.Prize
 com/chien/prize/ThreePrize.java
@@ -12,21 +20,15 @@ com/chien/CatchData.java
  com.chien.CatchData
 com/chien/prize/GrandPrize.java
  com.chien.prize.GrandPrize
-com/chien/prize/FourPrize.java
- com.chien.prize.FourPrize
-com/chien/prize/SixPrize.java
- com.chien.prize.SixPrize
-com/chien/CompareData.java
- com.chien.CompareData
-com/chien/prize/TwoPrize.java
- com.chien.prize.TwoPrize
-com/chien/prize/FirstPrize.java
- com.chien.prize.FirstPrize
-com/chien/prize/NotPrize.java
- com.chien.prize.NotPrize
-com/chien/prize/AddsixPrize.java
- com.chien.prize.AddsixPrize
-com/chien/prize/FivePrize.java
- com.chien.prize.FivePrize
 com/chien/prize/SpecialPrize.java
  com.chien.prize.SpecialPrize
+com/chien/prize/SixPrize.java
+ com.chien.prize.SixPrize
+com/chien/prize/AddsixPrize.java
+ com.chien.prize.AddsixPrize
+com/chien/prize/FirstPrize.java
+ com.chien.prize.FirstPrize
+com/chien/Website.java
+ com.chien.Website
+com/chien/User.java
+ com.chien.User

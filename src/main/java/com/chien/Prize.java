@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Prize {
-    CatchData cd = new CatchData();
-    public List<Integer> data = new ArrayList<Integer>(cd.get());
+    public List<Integer> data = new ArrayList<Integer>();
     public String name;
     public int bonus;
     String[] list;
@@ -18,7 +17,9 @@ public class Prize {
         super();
     }
 
-    public void content(){
+    public void content(String year, String month){
+        CatchData cd = new CatchData();
+        data = cd.get(year, month);
         String[] nameData = {"特別獎", "特獎", "頭獎A", "頭獎B", "頭獎C", "增開六獎"};
         for (int i = 0; i < nameData.length; i++) {
             System.out.printf("%-7s", nameData[i]);
@@ -48,7 +49,7 @@ public class Prize {
                         " 得到獎金"+winBonus.get(i)+"元");
             }
         }
-        System.out.println("得到獎金的總金額為"+total+"元");
+        System.out.println("這次兌換發票的中獎總金額為"+total+"元");
     }
 
 }

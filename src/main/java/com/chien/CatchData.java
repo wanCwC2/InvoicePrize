@@ -14,8 +14,8 @@ public class CatchData {
     static List<Integer> prize = new ArrayList<Integer>();
     static String urlData = null;
 
-    public static void catchdata() {
-        String site = "https://www.etax.nat.gov.tw/etw-main/web/ETW183W2_11003/";
+    public static void catchdata(String year, String month) {
+        String site = "https://www.etax.nat.gov.tw/etw-main/web/ETW183W2_"+year+month+"/";
         try {
             URL url = new URL(site);
             HttpURLConnection conn = (HttpURLConnection)url.openConnection();
@@ -65,8 +65,8 @@ public class CatchData {
         }while (counter < len);
     }
 
-    public static List<Integer> get(){
-        catchdata();
+    public static List<Integer> get(String year, String month){
+        catchdata(year, month);
         return prize;
     }
 }
