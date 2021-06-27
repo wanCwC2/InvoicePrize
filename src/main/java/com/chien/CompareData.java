@@ -2,12 +2,10 @@ package com.chien;
 
 import com.chien.prize.*;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class CompareData {
-    public static List compare(int index, int prize) {
+    public static String[] compare(int index, int prize) {
         Prize[] data = {new SpecialPrize(),
                         new GrandPrize(),
                         new FirstPrize(),
@@ -56,11 +54,13 @@ public class CompareData {
                 System.out.println(data[number].name);
             }
         }
-        List list = new ArrayList();
-        list.add(number);
-        list.add(enter);
-        list.add(data[number].name);
-        list.add(data[number].bonus);
+        String[] list = {Integer.toString(number), Integer.toString(enter),
+                    data[number].name, Integer.toString(data[number].bonus)};
+//        List list = new ArrayList();
+//        list.add(number);
+//        list.add(enter);
+//        list.add(data[number].name);
+//        list.add(data[number].bonus);
         return list;
     }
 

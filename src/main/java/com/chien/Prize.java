@@ -8,7 +8,7 @@ public class Prize {
     public List<Integer> data = new ArrayList<Integer>(cd.get());
     public String name;
     public int bonus;
-    public List list = new ArrayList<>();
+    String[] list;
     int total = 0;
     List<Integer> enter = new ArrayList<>();
     List<String> winName = new ArrayList<>();
@@ -29,11 +29,11 @@ public class Prize {
     public void compare(int index){
         CompareData cpd = new CompareData();
         list = cpd.compare(index, data.get(index));
-        if ((int)list.get(0) != 9){
-            total += (int)list.get(3);
-            enter.add((int)list.get(1));
-            winName.add((String) list.get(2));
-            winBonus.add((int)list.get(3));
+        if (Integer.parseInt(list[0]) != 9){
+            total += Integer.parseInt(list[3]);
+            enter.add(Integer.parseInt(list[1]));
+            winName.add(list[2]);
+            winBonus.add(Integer.parseInt(list[3]));
         }
     }
 
