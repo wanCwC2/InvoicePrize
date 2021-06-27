@@ -14,7 +14,7 @@ public class CatchData {
     static List<Integer> prize = new ArrayList<Integer>();
     static String urlData = null;
 
-    public static void want() {
+    public static void Catch() {
         String site = "https://www.etax.nat.gov.tw/etw-main/web/ETW183W2_11003/";
         try {
             URL url = new URL(site);
@@ -28,14 +28,7 @@ public class CatchData {
                 line = bis.readLine();
             }
             urlData = data.toString();
-//            System.out.println(urlData);
             Parser(urlData);
-//            System.out.println(number.get(0));
-//            System.out.println("統一發票中獎號碼");
-//            for (int i = 0; i < name.length; i++) {
-//                System.out.printf("%-12s %d",name[i],prize.get(i));
-//                System.out.println();
-//            }
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -50,7 +43,6 @@ public class CatchData {
         int counter = 0;
         int len = name.length;
         do {
-//            System.out.println("s="+start+"e="+end);
             if (counter <= len-2 && counter >=len-4){
                 start = data.indexOf("<p>",end+1);
                 end = data.indexOf("</p>", start+1);
@@ -73,8 +65,8 @@ public class CatchData {
         }while (counter < len);
     }
 
-    public static List<Integer> get(){
-        want();
+    public static List<Integer> Get(){
+        Catch();
         return prize;
     }
 }

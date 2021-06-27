@@ -62,11 +62,6 @@ public class CompareData {
         }
         String[] list = {Integer.toString(number), Integer.toString(enter),
                     data[number].name, Integer.toString(data[number].bonus)};
-//        List list = new ArrayList();
-//        list.add(number);
-//        list.add(enter);
-//        list.add(data[number].name);
-//        list.add(data[number].bonus);
         return list;
     }
 

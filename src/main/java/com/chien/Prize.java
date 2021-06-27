@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Prize {
     CatchData cd = new CatchData();
-    public List<Integer> data = new ArrayList<Integer>(cd.get());
+    public List<Integer> data = new ArrayList<Integer>(cd.Get());
     public String name;
     public int bonus;
     String[] list;
