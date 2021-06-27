@@ -11,7 +11,7 @@ import java.util.List;
 public class CatchData {
     static String[] name = {"specialPrize", "grandPrize", "firstPrizeA",
             "firstPrizeB", "firstPrizeC", "addSixPrize"};
-    static List<Integer> number = new ArrayList<Integer>();
+    static List<Integer> prize = new ArrayList<Integer>();
     static String urlData = null;
 
     public void want() {
@@ -33,7 +33,7 @@ public class CatchData {
 //            System.out.println(number.get(0));
 //            System.out.println("統一發票中獎號碼");
             for (int i = 0; i < name.length; i++) {
-                System.out.printf("%-12s %d",name[i],number.get(i));
+                System.out.printf("%-12s %d",name[i],prize.get(i));
                 System.out.println();
             }
         } catch (MalformedURLException e) {
@@ -55,25 +55,25 @@ public class CatchData {
                 start = data.indexOf("<p>",end+1);
                 end = data.indexOf("</p>", start+1);
                 temp = data.substring(end-8, end);
-                number.add(Integer.parseInt(temp));
+                prize.add(Integer.parseInt(temp));
             }else if(counter == len-1){
                 start = data.indexOf("<td headers=\""+name[counter]+"\" class=\"number\">",
                         end+1);
                 end = data.indexOf("</td>", start+1);
                 temp = data.substring(end-4, end-1);
-                number.add(Integer.parseInt(temp));
+                prize.add(Integer.parseInt(temp));
             }else {
                 start = data.indexOf("<td headers=\""+name[counter]+"\" class=\"number\">",
                         end+1);
                 end = data.indexOf("</td>", start+1);
                 temp = data.substring(end-9, end-1);
-                number.add(Integer.parseInt(temp));
+                prize.add(Integer.parseInt(temp));
             }
             counter++;
         }while (counter < len);
     }
 
     public static List<Integer> get(){
-        return number;
+        return prize;
     }
 }
