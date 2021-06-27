@@ -14,9 +14,13 @@ public class User {
             int index = 0;
             while (index < prize.data.size()){
                 if (enter == prize.data.get(index)%1000){
-                    System.out.println("Fine");
+                    prize.compare(index);
+                    break;
                 }
                 index++;
+            }
+            if (index == prize.data.size()){
+                System.out.println("沒中獎");
             }
             System.out.print("輸入你的發票末三碼，若要停止則輸入0：");
             enter = scan.nextInt();

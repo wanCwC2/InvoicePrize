@@ -1,42 +1,77 @@
 package com.chien;
 
+import com.chien.prize.*;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class CompareData {
-    public static void main(String[] args) {
-        int index = 2;
-        int prize = 22884739;
+    public static List compare(int index, int prize) {
+        Prize[] data = {new SpecialPrize(),
+                        new GrandPrize(),
+                        new FirstPrize(),
+                        new TwoPrize(),
+                        new ThreePrize(),
+                        new FourPrize(),
+                        new FivePrize(),
+                        new SixPrize(),
+                        new AddsixPrize(),
+                        new NotPrize()};
+        int number = 0;
         Scanner scan = new Scanner(System.in);
-        System.out.println("輸入你的完整發票號碼");
+        System.out.print("輸入你的完整發票號碼：");
         int enter = scan.nextInt();
         if (index == 0){
             if (enter == prize){
-                System.out.println("恭喜中特別獎");
+                number = 0;
+                System.out.println("恭喜中"+data[number].name+" 得到獎金為"+data[number].bonus);
+            }else{
+                number = 9;
+                System.out.println(data[number].name);
             }
         }else if (index == 1){
             if (enter == prize){
-                System.out.println("恭喜中特獎");
+                number = 1;
+                System.out.println("恭喜中"+data[number].name+" 得到獎金為"+data[number].bonus);
+            }else{
+                number = 9;
+                System.out.println(data[number].name);
             }
         }else if (index == 2 || index == 3 || index == 4){
+            number = 2;
             int counter = 100000000;
-            boolean win = firstPrize(enter, prize, counter);
-            if (win){
-                System.out.println("恭喜中頭獎中的一個");
+            number = firstPrize(enter, prize, counter, number);
+            if (number != 9){
+                System.out.println("恭喜中"+data[number].name+" 得到獎金為"+data[number].bonus);
+            }else{
+                System.out.println(data[number].name);
             }
         }else if (index == 5){
-            if (enter == prize) {
-                System.out.println("恭喜中增開六獎");
+            if (enter%1000 == prize) {
+                number = 8;
+                System.out.println("恭喜中"+data[number].name+" 得到獎金為"+data[number].bonus);
+            }else{
+                number = 9;
+                System.out.println(data[number].name);
             }
         }
+        List list = new ArrayList();
+        list.add(number);
+        list.add(enter);
+        list.add(data[number].name);
+        list.add(data[number].bonus);
+        return list;
     }
-    public static boolean firstPrize (int enter, int prize, int counter) {
-        if (counter < 100) {
-            return false;
+
+    public static int firstPrize (int enter, int prize, int counter, int number) {
+        if (counter < 1000) {
+            return 9;
         } else {
-            if (enter == prize % counter) {
-                return true;
+            if ((enter % counter) == (prize % counter)) {
+                return number;
             } else {
-                return firstPrize(enter, prize, counter / 10);
+                return firstPrize(enter, prize, counter / 10, number+1);
             }
         }
     }

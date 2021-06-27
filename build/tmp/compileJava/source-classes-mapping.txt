@@ -2,8 +2,6 @@ com/fju/Car.java
  com.fju.Car
 com/fju/Tester.java
  com.fju.Tester
-com/chien/CompareData.java
- com.chien.CompareData
 com/chien/CatchData.java
  com.chien.CatchData
 com/chien/Prize.java
@@ -18,10 +16,14 @@ com/chien/prize/FourPrize.java
  com.chien.prize.FourPrize
 com/chien/prize/SixPrize.java
  com.chien.prize.SixPrize
+com/chien/CompareData.java
+ com.chien.CompareData
 com/chien/prize/TwoPrize.java
  com.chien.prize.TwoPrize
 com/chien/prize/FirstPrize.java
  com.chien.prize.FirstPrize
+com/chien/prize/NotPrize.java
+ com.chien.prize.NotPrize
 com/chien/prize/AddsixPrize.java
  com.chien.prize.AddsixPrize
 com/chien/prize/FivePrize.java
