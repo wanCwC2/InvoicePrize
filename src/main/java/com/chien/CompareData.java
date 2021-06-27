@@ -5,8 +5,7 @@ import com.chien.prize.*;
 import java.util.Scanner;
 
 public class CompareData {
-    public static String[] compare(int index, String prizeS) {
-        int prizeI = Integer.parseInt(prizeS);
+    public static String[] compare(int index, int prize) {
         Prize[] data = {new SpecialPrize(),
                         new GrandPrize(),
                         new FirstPrize(),
@@ -23,12 +22,12 @@ public class CompareData {
         String enterS = scan.next();
         while (enterS.length() != 8){
             System.out.println("輸入格式錯誤");
-            System.out.print("輸入你的完整發票號碼：");
+            System.out.print("輸入你的完整發票號碼，共8碼：：");
             enterS = scan.next();
         }
         int enterI = Integer.parseInt(enterS);
         if (index == 0){
-            if (enterI == prizeI){
+            if (enterI == prize){
                 number = 0;
                 System.out.println("恭喜中"+data[number].name+" 得到獎金為"+data[number].bonus);
             }else{
@@ -36,7 +35,7 @@ public class CompareData {
                 System.out.println(data[number].name);
             }
         }else if (index == 1){
-            if (enterI == prizeI){
+            if (enterI == prize){
                 number = 1;
                 System.out.println("恭喜中"+data[number].name+" 得到獎金為"+data[number].bonus);
             }else{
@@ -46,14 +45,14 @@ public class CompareData {
         }else if (index == 2 || index == 3 || index == 4){
             number = 2;
             int counter = 100000000;
-            number = firstPrize(enterI, prizeI, counter, number);
+            number = firstPrize(enterI, prize, counter, number);
             if (number != 9){
                 System.out.println("恭喜中"+data[number].name+" 得到獎金為"+data[number].bonus);
             }else{
                 System.out.println(data[number].name);
             }
-        }else if (index == 5){
-            if (enterI%1000 == prizeI) {
+        }else if (index == 5 || index == 6){
+            if (enterI%1000 == prize) {
                 number = 8;
                 System.out.println("恭喜中"+data[number].name+" 得到獎金為"+data[number].bonus);
             }else{

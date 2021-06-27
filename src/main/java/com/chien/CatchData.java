@@ -51,6 +51,13 @@ public class CatchData {
                 start = data.indexOf("<td headers=\""+name[counter]+"\" class=\"number\">",
                         end+1);
                 end = data.indexOf("</td>", start+1);
+                if(end - start - 42 >7){
+                    end = data.indexOf("、", start+1);
+                    temp = data.substring(end-3, end);
+                    prize.add(temp);
+                    start = data.indexOf("、", start+1);
+                    end = data.indexOf("</td>", start+1);
+                }
                 temp = data.substring(end-4, end-1);
             }else {
                 start = data.indexOf("<td headers=\""+name[counter]+"\" class=\"number\">",
