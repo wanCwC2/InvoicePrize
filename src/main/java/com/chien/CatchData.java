@@ -14,7 +14,7 @@ public class CatchData {
     static List<Integer> prize = new ArrayList<Integer>();
     static String urlData = null;
 
-    public static void Catch() {
+    public static void catchdata() {
         String site = "https://www.etax.nat.gov.tw/etw-main/web/ETW183W2_11003/";
         try {
             URL url = new URL(site);
@@ -28,7 +28,7 @@ public class CatchData {
                 line = bis.readLine();
             }
             urlData = data.toString();
-            Parser(urlData);
+            parser(urlData);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -36,7 +36,7 @@ public class CatchData {
         }
     }
 
-    public static void Parser(String data) {
+    public static void parser(String data) {
         String temp = null;
         int start = 0;
         int end = 0;
@@ -65,8 +65,8 @@ public class CatchData {
         }while (counter < len);
     }
 
-    public static List<Integer> Get(){
-        Catch();
+    public static List<Integer> get(){
+        catchdata();
         return prize;
     }
 }
