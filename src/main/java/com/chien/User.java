@@ -33,7 +33,7 @@ public class User {
             }
             int index = 0;
             while (index < prize.data.size()){
-                if (enterI == prize.data.get(index)%1000){
+                if (enterI == Integer.parseInt(prize.data.get(index))%1000){
                     prize.compare(index);
                     break;
                 }

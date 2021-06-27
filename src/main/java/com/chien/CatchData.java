@@ -11,7 +11,7 @@ import java.util.List;
 public class CatchData {
     static String[] name = {"specialPrize", "grandPrize", "firstPrizeA",
             "firstPrizeB", "firstPrizeC", "addSixPrize"};
-    static List<Integer> prize = new ArrayList<Integer>();
+    static List<String> prize = new ArrayList<>();
     static String urlData = null;
 
     public static void catchdata(String year, String month) {
@@ -47,25 +47,23 @@ public class CatchData {
                 start = data.indexOf("<p>",end+1);
                 end = data.indexOf("</p>", start+1);
                 temp = data.substring(end-8, end);
-                prize.add(Integer.parseInt(temp));
             }else if(counter == len-1){
                 start = data.indexOf("<td headers=\""+name[counter]+"\" class=\"number\">",
                         end+1);
                 end = data.indexOf("</td>", start+1);
                 temp = data.substring(end-4, end-1);
-                prize.add(Integer.parseInt(temp));
             }else {
                 start = data.indexOf("<td headers=\""+name[counter]+"\" class=\"number\">",
                         end+1);
                 end = data.indexOf("</td>", start+1);
                 temp = data.substring(end-9, end-1);
-                prize.add(Integer.parseInt(temp));
             }
+            prize.add(temp);
             counter++;
         }while (counter < len);
     }
 
-    public static List<Integer> get(String year, String month){
+    public static List<String> get(String year, String month){
         catchdata(year, month);
         return prize;
     }

@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Prize {
-    public List<Integer> data = new ArrayList<Integer>();
+    public List<String> data = new ArrayList<String>();
     public String name;
     public int bonus;
     String[] list;
     int total = 0;
-    List<Integer> enter = new ArrayList<>();
+    List<String> enter = new ArrayList<>();
     List<String> winName = new ArrayList<>();
     List<Integer> winBonus = new ArrayList<>();
 
@@ -32,7 +32,7 @@ public class Prize {
         list = cpd.compare(index, data.get(index));
         if (Integer.parseInt(list[0]) != 9){
             total += Integer.parseInt(list[3]);
-            enter.add(Integer.parseInt(list[1]));
+            enter.add(list[1]);
             winName.add(list[2]);
             winBonus.add(Integer.parseInt(list[3]));
         }
