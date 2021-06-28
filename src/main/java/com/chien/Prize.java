@@ -22,8 +22,8 @@ public class Prize {
         data = cd.get(year, month);
         String[] nameData = {"特別獎", "特獎", "頭獎A", "頭獎B", "頭獎C", "增開六獎", "增開六獎2"};
         for (int i = 0; i < data.size(); i++) {
-            System.out.printf("%-7s", nameData[i]);
-            System.out.println(data.get(i));
+            System.out.printf("%-7s %8s", nameData[i], data.get(i));
+            System.out.println();
         }
     }
 
