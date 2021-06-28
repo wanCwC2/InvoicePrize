@@ -2,8 +2,6 @@ package com.chien;
 
 import com.chien.prize.*;
 
-import java.util.Scanner;
-
 public class CompareData {
     public static String[] compare(int index, int prize) {
         Prize[] data = {new SpecialPrize(),
@@ -17,17 +15,14 @@ public class CompareData {
                         new AddsixPrize(),
                         new NotPrize()};
         int number = 0;
-        Scanner scan = new Scanner(System.in);
+        Enter enter = new Enter();
         System.out.print("輸入你的完整發票號碼，共8碼：");
-        String enterS = scan.next();
-        while (enterS.length() != 8){
+        while (!enter.vertified(8)){
             System.out.println("輸入格式錯誤");
             System.out.print("輸入你的完整發票號碼，共8碼：：");
-            enterS = scan.next();
         }
-        int enterI = Integer.parseInt(enterS);
         if (index == 0){
-            if (enterI == prize){
+            if (enter.integer == prize){
                 number = 0;
                 System.out.println("恭喜中"+data[number].name+" 得到獎金為"+data[number].bonus);
             }else{
@@ -35,7 +30,7 @@ public class CompareData {
                 System.out.println(data[number].name);
             }
         }else if (index == 1){
-            if (enterI == prize){
+            if (enter.integer == prize){
                 number = 1;
                 System.out.println("恭喜中"+data[number].name+" 得到獎金為"+data[number].bonus);
             }else{
@@ -45,14 +40,14 @@ public class CompareData {
         }else if (index == 2 || index == 3 || index == 4){
             number = 2;
             int counter = 100000000;
-            number = firstPrize(enterI, prize, counter, number);
+            number = firstPrize(enter.integer, prize, counter, number);
             if (number != 9){
                 System.out.println("恭喜中"+data[number].name+" 得到獎金為"+data[number].bonus);
             }else{
                 System.out.println(data[number].name);
             }
         }else if (index == 5 || index == 6){
-            if (enterI%1000 == prize) {
+            if (enter.integer%1000 == prize) {
                 number = 8;
                 System.out.println("恭喜中"+data[number].name+" 得到獎金為"+data[number].bonus);
             }else{
@@ -60,7 +55,7 @@ public class CompareData {
                 System.out.println(data[number].name);
             }
         }
-        String[] list = {Integer.toString(number), enterS,
+        String[] list = {Integer.toString(number), enter.string,
                     data[number].name, Integer.toString(data[number].bonus)};
         return list;
     }

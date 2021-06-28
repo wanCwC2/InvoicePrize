@@ -23,7 +23,9 @@ public class Website {
                 || (site/100 == yearNow && site%100 > monthNow)
                 || site%100 > 12
                 || site%100 < 0
-                || ((site%100)+1)%2 == 5){
+                || ((site%100)+1)%2 == 5
+                || site/100 < 101
+                || (site/100 == 101 && site%100 <5)){
             return false;
         }else{
             year = Integer.toString(site/100);
