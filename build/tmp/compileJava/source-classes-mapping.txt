@@ -2,8 +2,8 @@ com/fju/Car.java
  com.fju.Car
 com/fju/Tester.java
  com.fju.Tester
-com/chien/Website.java
- com.chien.Website
+com/chien/CompareData.java
+ com.chien.CompareData
 com/chien/CatchData.java
  com.chien.CatchData
 com/chien/prize/SpecialPrize.java
@@ -32,5 +32,5 @@ com/chien/Enter.java
  com.chien.Enter
 com/chien/User.java
  com.chien.User
-com/chien/CompareData.java
- com.chien.CompareData
+com/chien/Website.java
+ com.chien.Website

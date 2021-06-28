@@ -19,8 +19,8 @@ public class Website {
         String timeNowMonth = new SimpleDateFormat("MM").format(Calendar.getInstance().getTime());
         String timeNowDay = new SimpleDateFormat("dd").format(Calendar.getInstance().getTime());
         int yearNow = Integer.parseInt(timeNowYear)-1911;
-        int monthNow = 8;
-        int dayNow = 24;
+        int monthNow = Integer.parseInt(timeNowMonth);
+        int dayNow = Integer.parseInt(timeNowDay);
         if (site/100 > yearNow
                 || (site/100 == yearNow && site%100 > monthNow)
                 || site%100 > 12
