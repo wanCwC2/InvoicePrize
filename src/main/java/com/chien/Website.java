@@ -2,6 +2,7 @@ package com.chien;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Scanner;
 
 public class Website {
     String year;
@@ -11,7 +12,9 @@ public class Website {
         super();
     }
 
-    public boolean verified(int site){
+    public boolean verified(){
+        Scanner scan = new Scanner(System.in);
+        int site = scan.nextInt();
         String timeNowYear = new SimpleDateFormat("yyyy").format(Calendar.getInstance().getTime());
         String timeNowMonth = new SimpleDateFormat("MM").format(Calendar.getInstance().getTime());
         int yearNow = Integer.parseInt(timeNowYear)-1911;
@@ -21,13 +24,10 @@ public class Website {
                 || site%100 > 12
                 || site%100 < 0
                 || ((site%100)+1)%2 == 5){
-            System.out.println("輸入格式錯誤");
-            System.out.println("輸入你想兌換的月份");
-            System.out.print("e.g. 如果是想兌獎民國110年3月至4月，則輸入11003即可，無需輸入04： ");
             return false;
         }else{
             year = Integer.toString(site/100);
-            if (site%100 < 2) {
+            if (site%100 < 10) {
                 month = "0" + Integer.toString(site % 100);
             }else {
                 month = Integer.toString(site % 100);

@@ -8,9 +8,10 @@ public class User {
         System.out.print("e.g. 如果是想兌獎民國110年3月至4月，則輸入11003即可，無需輸入04： ");
         Scanner scan = new Scanner(System.in);
         Website web = new Website();
-        int site = scan.nextInt();
-        while (!web.verified(site)){
-            site = scan.nextInt();
+        while (!web.verified()){
+            System.out.println("輸入格式錯誤");
+            System.out.println("輸入你想兌換的月份");
+            System.out.print("e.g. 如果是想兌獎民國110年3月至4月，則輸入11003即可，無需輸入04： ");
         }
         System.out.println("以下是民國"+web.year+"年"
                 +Integer.parseInt(web.month)

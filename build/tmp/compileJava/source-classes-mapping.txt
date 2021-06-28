@@ -2,8 +2,8 @@ com/fju/Car.java
  com.fju.Car
 com/fju/Tester.java
  com.fju.Tester
-com/chien/Website.java
- com.chien.Website
+com/chien/Prize.java
+ com.chien.Prize
 com/chien/CatchData.java
  com.chien.CatchData
 com/chien/prize/SpecialPrize.java
@@ -12,8 +12,8 @@ com/chien/prize/ThreePrize.java
  com.chien.prize.ThreePrize
 com/chien/prize/GrandPrize.java
  com.chien.prize.GrandPrize
-com/chien/User.java
- com.chien.User
+com/chien/CompareData.java
+ com.chien.CompareData
 com/chien/prize/FourPrize.java
  com.chien.prize.FourPrize
 com/chien/prize/SixPrize.java
@@ -28,7 +28,7 @@ com/chien/prize/NotPrize.java
  com.chien.prize.NotPrize
 com/chien/prize/AddsixPrize.java
  com.chien.prize.AddsixPrize
-com/chien/Prize.java
- com.chien.Prize
-com/chien/CompareData.java
- com.chien.CompareData
+com/chien/User.java
+ com.chien.User
+com/chien/Website.java
+ com.chien.Website
