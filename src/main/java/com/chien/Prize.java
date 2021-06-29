@@ -3,7 +3,7 @@ package com.chien;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Prize {
+public class Prize extends MachineFrame {
     public List<String> data = new ArrayList<String>();
     public String name;
     public int bonus;
@@ -18,12 +18,16 @@ public class Prize {
     }
 
     public void content(String year, String month){
+        frame();
+        label.setText("<html>以下是民國"+year+"年"
+                +Integer.parseInt(month)
+                +"月至"+(Integer.parseInt(month)+1)
+                +"月的中獎號碼<br/>-------<br/>");
         CatchData cd = new CatchData();
         data = cd.get(year, month);
         String[] nameData = {"特別獎", "特獎", "頭獎A", "頭獎B", "頭獎C", "增開六獎", "增開六獎2"};
         for (int i = 0; i < data.size(); i++) {
-            System.out.printf("%-7s %8s", nameData[i], data.get(i));
-            System.out.println();
+            label.setText(label.getText()+nameData[i]+"-------"+data.get(i)+"<br/>");
         }
     }
 
@@ -39,18 +43,20 @@ public class Prize {
     }
 
     public void print(){
-        System.out.println("-------以下是你的中獎發票-------");
+        dispose();
+        frame();
+        label.setText("<html>以下是你的中獎發票<br/>-------<br/>");
         if (enter.size() == 0){
-            System.out.println("完全沒中獎喔！");
+            label.setText(label.getText()+"完全沒中獎喔！");
         }else{
             for (int i = 0; i < enter.size(); i++) {
-                System.out.println("你的發票號碼"+enter.get(i)+
+                label.setText(label.getText()+"你的發票號碼"+enter.get(i)+
                         " 中"+winName.get(i)+
-                        " 得到獎金"+winBonus.get(i)+"元");
+                        " 得到獎金"+winBonus.get(i)+"元<br/>");
             }
         }
         if (total != 0) {
-            System.out.println("這次兌換發票的中獎總金額為" + total + "元");
+            label.setText(label.getText()+"-------<br/>這次兌換發票的中獎總金額為" + total + "元");
         }
     }
 
