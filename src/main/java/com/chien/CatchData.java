@@ -15,7 +15,7 @@ public class CatchData {
     static String urlData = null;
 
     public static void catchdata(String year, String month) {
-        String site = "https://www.etax.nat.gov.tw/etw-main/web/ETW183W2_"+year+month+"/";
+        String site = "https://www.etax.nat.gov.tw/etw-main/ETW183W2_"+year+month+"/";
         try {
             URL url = new URL(site);
             HttpURLConnection conn = (HttpURLConnection)url.openConnection();
@@ -44,28 +44,30 @@ public class CatchData {
         int len = name.length;
         do {
             if (counter <= len-2 && counter >=len-4){
-                start = data.indexOf("<p>",end+1);
-                end = data.indexOf("</p>", start+1);
-                temp = data.substring(end-8, end);
+                start = data.indexOf("<div class=\"col-12 mb-3\">",end+1);
+                end = data.indexOf("</div>", start+1);
+                temp = data.substring(end-23, end-15);
+                prize.add(temp);
             }else if(counter == len-1){
-                start = data.indexOf("<td headers=\""+name[counter]+"\" class=\"number\">",
-                        end+1);
-                end = data.indexOf("</td>", start+1);
-                if(end - start - 42 >7){
-                    end = data.indexOf("、", start+1);
-                    temp = data.substring(end-3, end);
+                start = data.indexOf("<div class=\"col-12 mb-3\">", end+1);
+                end = data.indexOf("</div>", start+1);
+                temp = data.substring(end-18, end-15);
+                prize.add(temp);
+                counter++;
+                start = data.indexOf("<div class=\"col-12 mb-3\">", end+1);
+                if(start != -1){
+                    end = data.indexOf("</div>", start+1);
+                    temp = data.substring(end-23, end-15);
                     prize.add(temp);
-                    start = data.indexOf("、", start+1);
-                    end = data.indexOf("</td>", start+1);
                 }
-                temp = data.substring(end-4, end-1);
             }else {
-                start = data.indexOf("<td headers=\""+name[counter]+"\" class=\"number\">",
+                start = data.indexOf("<div class=\"col-12 mb-3\">",
                         end+1);
-                end = data.indexOf("</td>", start+1);
-                temp = data.substring(end-9, end-1);
+                end = data.indexOf("</div>", start+1);
+                temp = data.substring(end-23, end-15);
+                prize.add(temp);
             }
-            prize.add(temp);
+//            prize.add(temp);
             counter++;
         }while (counter < len);
     }
